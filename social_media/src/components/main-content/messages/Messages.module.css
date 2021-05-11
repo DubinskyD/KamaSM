@@ -1,0 +1,8 @@
+.Messages {
+   color: coral;
+   display: flex;
+   justify-content: space-around;
+   border: 2px dashed red;
+   width: 100%;
+   height: 100%;
+}

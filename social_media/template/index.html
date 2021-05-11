@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tamplate</title>
+
+   <style>
+      body {
+         margin: 0;
+      }
+
+      .main-wrapper {
+         background-color: #5e5373;
+         border: 1px dashed #ece89d;
+         color: white;
+         font-size: medium;
+         font-weight: bold;
+         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+         text-align: center;
+
+
+         height: 100vh;
+         width: 90%;
+         margin: auto;
+
+         display: grid;
+         grid-template-columns: 200px 1fr 100px;
+         grid-template-rows: 100px 1fr 50px;
+         grid-template-areas:
+            'header header header'
+            'left-sidebar content aside'
+            'footer footer footer';
+
+      }
+
+      header {
+         background-color: #5e5373;
+         border: 1px dashed #ece89d;
+         grid-area: header;
+
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+      }
+
+      .left-sidebar {
+         background-color: #5e5373;
+         border: 1px dashed #ece89d;
+         grid-area: left-sidebar;
+
+
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+      }
+
+      .main-content {
+         background-color: #5e5373;
+         border: 1px dashed #ece89d;
+         grid-area: content;
+
+
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      aside {
+         background-color: #5e5373;
+         border: 1px dashed #ece89d;
+         grid-area: aside;
+
+
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+      }
+
+      footer {
+         background-color: #5e5373;
+         border: 1px dashed #ece89d;
+         grid-area: footer;
+
+
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="main-wrapper">
+      <header class="header">Header</header>
+      <div class="left-sidebar"> Left sidebar</div>
+      <div class="main-content">Main Content</div>
+      <aside class="aside"> Aside</aside>
+      <footer class="footer">Footer</footer>
+   </div>
+</body>
+
+</html>

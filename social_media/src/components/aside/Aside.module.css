@@ -1,0 +1,9 @@
+.aside {
+   background-color: #5e5373;
+   border: 1px dashed #ece89d;
+   grid-area: aside;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}

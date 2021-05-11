@@ -1,0 +1,20 @@
+.dialogs_wrapper {
+   display: flex;
+   flex-direction: column;
+}
+
+.dialogs_participant {
+   display: flex;
+}
+
+.participant_logo {
+   width: 30px;
+   border-radius: 50%;
+   color: violet;
+   margin: 20px;
+}
+
+.participant_name {
+   padding: 20px;
+   color: white;
+}

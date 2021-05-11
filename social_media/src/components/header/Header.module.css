@@ -1,0 +1,9 @@
+.header {
+   background-color: #5e5373;
+   border: 1px dashed #ece89d;
+   grid-area: header;
+
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}

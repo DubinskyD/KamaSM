@@ -1,0 +1,19 @@
+.wrapper {
+   display: flex;
+   justify-content: space-around;
+   text-align: left;
+}
+.wrapper > span {
+   margin: 10px;
+}
+.img {
+   width: 100px;
+   height: 100px;
+}
+
+.selectedPage {
+   color: red;
+}
+.countWrapper {
+   width: 500px;
+}

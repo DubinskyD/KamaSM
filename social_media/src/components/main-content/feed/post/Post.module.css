@@ -1,0 +1,10 @@
+.post_wrapper {
+   border: 1px dashed red;
+
+   justify-content: space-around;
+}
+.post_text {
+   color: white;
+}
+
+/* button */

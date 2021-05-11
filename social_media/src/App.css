@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+}
+
+.main-wrapper {
+  background-color: #5e5373;
+  border: 1px dashed #ece89d;
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+
+  height: 100vh;
+  width: 90%;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 200px 1fr 100px;
+  grid-template-rows: 100px 1fr 50px;
+  grid-template-areas:
+    "header header header"
+    "left-sidebar content aside"
+    "footer footer footer";
+}

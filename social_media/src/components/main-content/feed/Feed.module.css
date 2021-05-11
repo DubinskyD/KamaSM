@@ -1,0 +1,10 @@
+.feed_wrapper {
+   height: 100%;
+   width: 80%;
+
+   border: 1px solid red;
+
+   display: grid;
+   grid-template-rows: 9fr 2fr;
+   grid-template-areas: "list" "post";
+}
