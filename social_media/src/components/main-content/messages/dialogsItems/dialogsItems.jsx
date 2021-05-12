@@ -1,6 +1,8 @@
 import React from 'react';
+import { Textarea } from '../../../common/FormsControls/FormsControls';
 import { Field, reduxForm } from 'redux-form';
 import DialogsItem from './dialogsItem/dialogsItem';
+import { maxLenthCreator, required } from '../../../../utils/validators/validators';
 // import classes from './DialogsItem.module.css';
 
 const DialogsItems = (props) => {
@@ -21,14 +23,18 @@ const DialogsItems = (props) => {
    )
 }
 
+const maxLenth50 = maxLenthCreator(50);
+
 const DialogsItemsForm = (props) => {
    return (
       <form onSubmit={props.handleSubmit}>
          <div>
-            <Field component="textarea" name="newMessageText" />
+            <Field component={Textarea}
+               validate={[required, maxLenth50]}
+               name="newMessageText" />
          </div>
          <div>
-            <button> Add message</button>
+            <button> Add message </button>
          </div>
       </form>
    )
