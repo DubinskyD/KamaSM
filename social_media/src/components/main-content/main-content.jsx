@@ -17,11 +17,7 @@ const MainContent = (props) => {
          <Route path="/login" render={() => <LoginPage />} />
 
          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-         <Route path="/messages" render={() => <Messages
-         // store={props.store}
-         // messagesPage={props.state.messagesPage}
-         // dispatch={props.dispatch} 
-         />} />
+         <Route path="/messages" render={() => <Messages />} />
          <Route path="/gallery" component={Gallery} />
          <Route path="/feed" component={Feed} />
 
@@ -32,5 +28,7 @@ const MainContent = (props) => {
 
    );
 }
+
+
 
 export default MainContent;

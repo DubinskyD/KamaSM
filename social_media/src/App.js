@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
 import Footer from './components/footer/footer.jsx'
@@ -6,23 +6,35 @@ import LeftSidebar from './components/left-sidebar/left-sidebar.jsx';
 import MainContent from './components/main-content/main-content.jsx';
 import Aside from './components/aside/aside.jsx';
 import HeaderContainer from './components/header/headerContainer';
+import { connect } from 'react-redux';
+import { initializeApp } from './redux/reducers/app-reducer';
+import Preloader from './components/common/preloader';
 
 
-const App = (props) => {
+class App extends Component {
+  componentDidMount() {
+    this.props.initializeApp();
+  }
+  render() {
+    if (!this.props.initialized) {
+      return <Preloader />
+    }
 
-  return (
-    <div className='main-wrapper'>
-      <HeaderContainer />
-      <LeftSidebar />
-      <MainContent
-      // store={props.store}
-      // dispatch={props.dispatch}
-      // store={props.store}
-      />
-      <Aside />
-      <Footer />
-    </div >
-  );
+    return (
+      <div className='main-wrapper'>
+        <HeaderContainer />
+        <LeftSidebar />
+        <MainContent />
+        <Aside />
+        <Footer />
+      </div >
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+export default connect(mapStateToProps, { initializeApp })(App);
+//Routing 80 (compose+withrouter)
