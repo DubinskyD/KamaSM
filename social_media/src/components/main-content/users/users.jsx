@@ -1,53 +1,25 @@
 import React from 'react';
+import Paginator from '../../common/paginator/paginator.jsx';
+import User from './user';
 import styles from './Users.module.css';
-import userPhoto from '../../../../src/assets/image/user-image.jpg';
-import { NavLink } from 'react-router-dom';
 
-
-
-let Users = (props) => {
-
-   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
-   let pages = [];
-   for (let i = 1; i <= pagesCount; i++) {
-      pages.push(i);
-   }
+let Users = ({ currentPage, totalUsersCount, pageSize, onPageChanged, ...props }) => {
 
    return <div>
-      <div className={styles.countWrapper}>
-         {pages.map(p => {
-            return <span className={props.currentPage === p && styles.selectedPage}
-               onClick={(e) => { props.onPageChanged(p); }}>{p}</span>
-         })}
-      </div>
+      <Paginator currentPage={currentPage} pageSize={pageSize}
+         totalItemsCount={totalUsersCount} onPageChanged={onPageChanged} portionSize={10} />
 
-      {props.users
-         .map(u => <div key={u.id} className={styles.wrapper}>
-            <span>
-               <div>
-                  <NavLink to={'/profile/' + u.id}>
-                     <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="no "
-                        className={styles.img} />
-                  </NavLink>
-               </div>
-               <div>
-                  {u.followed
-                     ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
-                     : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => { props.follow(u.id); }}>Follow</button>
-                  }
-               </div>
-            </span>
-            <span>
-               <span>
-                  <div>{u.name}</div>
-                  <div>{u.status}</div>
-               </span>
-            </span>
-         </div>)
+      {props.users.map(u => <User user={u}
+         followingInProgress={props.followingInProgress}
+         follow={props.follow}
+         unfollow={props.unfollow}
+         key={u.id}
+         className={styles.wrapper}
+      />
+      )
       }
 
-   </div >
+   </div>
 }
 
 

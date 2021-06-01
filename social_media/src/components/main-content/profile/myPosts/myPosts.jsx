@@ -7,21 +7,20 @@ import { required, maxLenthCreator } from "../../../../utils/validators/validato
 
 const maxLength10 = maxLenthCreator(10);
 
-const MyPosts = (props) => {
-   let PostMessageData = props.PostMessage
-      .map(postText => <MyPost Message={postText.Message} id={postText.id} />)
+const MyPosts = React.memo((props) => {
+   // console.log('render');
+   let PostMessageData = props.PostMessage.map(postText => <MyPost Message={postText.Message} id={postText.id} />);
 
-   const addNewPost = (values) => {
+   const addNewPost = values => {
       props.addPost(values.newPostText);
-   }
-   return (
-      <div>
-         MyPosts:
+   };
+
+   return <div>
+      MyPosts:
          {PostMessageData}
-         <MyPostsReduxForm onSubmit={addNewPost} />
-      </div>
-   )
-}
+      <MyPostsReduxForm onSubmit={addNewPost} />
+   </div>;
+});
 
 const MyPostsForm = (props) => {
    return (
