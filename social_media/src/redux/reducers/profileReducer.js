@@ -2,7 +2,8 @@ import { profileAPI, usersAPI } from "../../api/api";
 
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const SET_STATUS = 'SET_STATUS'
+const SET_STATUS = 'SET_STATUS';
+const SAVE_AVATAR_SUCCESS = 'SAVE_AVATAR_SUCCESS';
 
 let initialState = {
    PostMessage: [
@@ -31,6 +32,12 @@ const profileReducer = (state = initialState, action) => {
             ...state,
             status: action.status
          };
+      case SAVE_AVATAR_SUCCESS:
+         debugger;
+         return {
+            ...state,
+            profile: { ...state.profile, photos: action.avatar }
+         };
       default:
          return state;
    }
@@ -39,6 +46,7 @@ const profileReducer = (state = initialState, action) => {
 export const addPostActionCreator = (newPostText) => ({ type: ADD_POST, newPostText })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setStatus = (status) => ({ type: SET_STATUS, status })
+export const saveAvatarSuccess = (avatar) => ({ type: SAVE_AVATAR_SUCCESS, avatar })
 export const getUserProfile = (userId) => {
    return async (dispatch) => {
       let response = await usersAPI.getProfile(userId);
@@ -61,5 +69,15 @@ export const updateStatus = (status) => {
       }
    }
 }
+export const saveAvatar = (file) => {
+   return async (dispatch) => {
+      let response = await profileAPI.saveAvatar(file);
+
+      if (response.data.resultCode === 0) {
+         dispatch(saveAvatarSuccess(response.data.data.photos));
+      }
+   }
+}
+
 
 export default profileReducer;

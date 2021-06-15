@@ -9,7 +9,7 @@ const maxLength10 = maxLenthCreator(10);
 
 const MyPosts = React.memo((props) => {
    // console.log('render');
-   let PostMessageData = props.PostMessage.map(postText => <MyPost Message={postText.Message} id={postText.id} />);
+   let PostMessageData = props.PostMessage.map(postText => <MyPost key={postText.id} Message={postText.Message} id={postText.id} />);
 
    const addNewPost = values => {
       props.addPost(values.newPostText);
@@ -17,7 +17,7 @@ const MyPosts = React.memo((props) => {
 
    return <div>
       MyPosts:
-         {PostMessageData}
+      {PostMessageData}
       <MyPostsReduxForm onSubmit={addNewPost} />
    </div>;
 });

@@ -10,20 +10,14 @@ const Paginator = ({ totalItemsCount, pageSize, currentPage, onPageChanged, port
    let leftPortionPageNumber = (portionSize * portionNumber) - portionSize + 1;
    let rightPortionPageNumber = portionSize * portionNumber;
 
-
-
    let pages = [];
    for (let i = 1; i <= pagesCount; i++) {
       pages.push(i);
    }
 
-   console.log(pages);
-   console.log(leftPortionPageNumber);
-   console.log(rightPortionPageNumber);
-
    return (
       <div className={styles.countWrapper}>
-         { portionNumber > 1 &&
+         {portionNumber > 1 &&
             <button onClick={(e) => { onPageChanged(rightPortionPageNumber); setPortionNumber(portionNumber - 1) }} >Prev</button>
          }
 
