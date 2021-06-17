@@ -8,7 +8,7 @@ import { maxLenthCreator, required } from '../../../../utils/validators/validato
 const DialogsItems = (props) => {
 
    let DialogMessageData = props.dialogItemsText
-      .map(postMessage => <DialogsItem dialogtext={postMessage.dialogtext} id={postMessage.id} />)
+      .map(postMessage => <DialogsItem key={postMessage.id} dialogtext={postMessage.dialogtext} id={postMessage.id} />)
 
    let addNewMessage = (values) => {
       props.addMessage(values.newMessageText);

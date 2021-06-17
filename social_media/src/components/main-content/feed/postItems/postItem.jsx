@@ -1,10 +1,10 @@
 import React from 'react';
 import style from './postItem.module.css';
 
-const postItem = (props) => {
+const PostItem = (props) => {
    return (
       <p className={style.my_post}>some post</p>
    )
 }
 
-export default postItem;
+export default PostItem;

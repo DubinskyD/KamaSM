@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { profileAPI, usersAPI } from "../../api/api";
 
 const ADD_POST = 'ADD-POST';
@@ -49,21 +50,21 @@ export const setStatus = (status) => ({ type: SET_STATUS, status })
 export const saveAvatarSuccess = (avatar) => ({ type: SAVE_AVATAR_SUCCESS, avatar })
 export const getUserProfile = (userId) => {
    return async (dispatch) => {
-      let response = await usersAPI.getProfile(userId);
+      const response = await usersAPI.getProfile(userId);
       dispatch(setUserProfile(response.data));
    }
 }
 
 export const getStatus = (userId) => {
    return async (dispatch) => {
-      let response = await profileAPI.getStatus(userId);
+      const response = await profileAPI.getStatus(userId);
       dispatch(setStatus(response.data));
    }
 }
 
 export const updateStatus = (status) => {
    return async (dispatch) => {
-      let response = await profileAPI.updateStatus(status);
+      const response = await profileAPI.updateStatus(status);
       if (response.data.resultCode === 0) {
          dispatch(setStatus(status));
       }
@@ -71,10 +72,21 @@ export const updateStatus = (status) => {
 }
 export const saveAvatar = (file) => {
    return async (dispatch) => {
-      let response = await profileAPI.saveAvatar(file);
-
+      const response = await profileAPI.saveAvatar(file);
       if (response.data.resultCode === 0) {
          dispatch(saveAvatarSuccess(response.data.data.photos));
+      }
+   }
+}
+export const saveProfile = (profile) => {
+   return async (dispatch, getState) => {
+      const userId = getState().auth.userId;
+      const response = await profileAPI.saveProfile(profile);
+      if (response.data.resultCode === 0) {
+         dispatch(getUserProfile(userId));
+      } else {
+         dispatch(stopSubmit("EditProfileContent", { _error: response.data.messages[0] }))
+         return Promise.reject(response.data.messages[0]);
       }
    }
 }
