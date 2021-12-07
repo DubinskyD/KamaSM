@@ -1,8 +1,6 @@
 import { usersAPI } from '../../api/api.js';
 import { updateObjectInArray } from '../../utils/objects-helpers.js';
 
-
-
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';

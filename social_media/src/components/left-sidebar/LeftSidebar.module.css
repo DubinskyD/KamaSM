@@ -1,6 +1,4 @@
 .left_sidebar {
-   background-color: #5e5373;
-   border: 1px dashed #ece89d;
    grid-area: left-sidebar;
 
    display: flex;
@@ -15,4 +13,5 @@
 
 .nav > a {
    text-decoration: none;
+   color: black;
 }

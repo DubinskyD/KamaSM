@@ -1,17 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+
 body {
   margin: 0;
 }
 
 .main-wrapper {
-  background-color: #5e5373;
-  border: 1px dashed #ece89d;
-  color: white;
+  font-family: "Patrick Hand SC", cursive;
+  color: #41403e;
+  background: #f0f0d8;
+
   font-size: medium;
   font-weight: bold;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-align: center;
 
-  height: 100vh;
   width: 90%;
   margin: auto;
 
@@ -22,4 +23,8 @@ body {
     "header header header"
     "left-sidebar content aside"
     "footer footer footer";
+}
+
+.main-wrapper > a {
+  color: #41403e;
 }

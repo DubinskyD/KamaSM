@@ -1,14 +1,14 @@
 .formsControls.error input,
 .formsControls.error textarea {
-   border: solid 3px red;
+   border: solid 5px rgba(255, 0, 0, 0.877);
+   border-width: 2px 2px 3px 3px;
+   border-radius: 4% 95% 6% 95%/95% 4% 92% 5%;
+   color: red;
+}
+.formsControls.error input:target {
+   border: solid 4px rgba(255, 0, 0, 0.877);
 }
 
 .formsControls.error span {
    color: red;
-}
-
-.summaryError {
-   border: red 1px solid;
-   color: red;
-   padding: 5px;
 }

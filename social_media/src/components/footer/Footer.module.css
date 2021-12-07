@@ -1,6 +1,4 @@
 .footer {
-   background-color: #5e5373;
-   border: 1px dashed #ece89d;
    grid-area: footer;
 
    display: flex;

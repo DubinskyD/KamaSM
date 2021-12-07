@@ -1,9 +1,39 @@
 .header {
-   background-color: #5e5373;
-   border: 1px dashed #ece89d;
+   background: #f0f0d8;
+   font-size: 1.8rem;
    grid-area: header;
-
    display: flex;
    align-items: center;
-   justify-content: space-around;
+   justify-content: center;
+}
+
+.header > div {
+   padding: 8%;
+   justify-content: space-between;
+   display: flex;
+   align-items: center;
+   height: 100%;
+   width: 100%;
+}
+
+.button {
+   font-family: "Patrick Hand SC", cursive;
+   align-self: center;
+   background: transparent;
+   padding: 0.2rem 1rem;
+   margin: 0.5rem 1rem;
+   transition: all 0.5s ease;
+   color: #41403e;
+   font-size: 12px;
+   letter-spacing: 1px;
+   outline: none;
+   border: solid 3px #41403e;
+   box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+.button:hover {
+   box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+}
+.button:active {
+   transform: translateY(4px);
 }

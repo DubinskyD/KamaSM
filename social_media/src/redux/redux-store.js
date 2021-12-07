@@ -25,7 +25,6 @@ let reducers = combineReducers({
 let store = createStore(
    reducers,
    composeEnhancers(applyMiddleware(thunkMiddleware))
-
 );
 
 window.store = store;

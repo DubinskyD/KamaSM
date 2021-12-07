@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './User.module.css';
-import userPhoto from '../../../../src/assets/image/user-image.jpg';
+import userPhoto from '../../../../src/assets/image/photo.svg';
 import { NavLink } from 'react-router-dom';
 
 let User = ({ user, followingInProgress, unfollow, follow }) => {
@@ -12,12 +12,12 @@ let User = ({ user, followingInProgress, unfollow, follow }) => {
                   className={styles.img} />
             </NavLink>
          </div>
-         <div>
+         <span>
             {user.followed
                ? <button disabled={followingInProgress.some(id => id === user.id)} onClick={() => { unfollow(user.id) }}>Unfollow</button>
                : <button disabled={followingInProgress.some(id => id === user.id)} onClick={() => { follow(user.id); }}>Follow</button>
             }
-         </div>
+         </span>
       </span>
       <span>
          <span>

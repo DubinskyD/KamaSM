@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Preloader from '../../../common/preloader';
 import ProfileStatusH from './ProfileStatusH';
-import userPhoto from '../../../../../src/assets/image/user-image.jpg';
+import userPhoto from '../../../../../src/assets/image/photo.svg';
 import ProfileInfoContentForm from './ProfileInfoContentForm';
+import styles from './profileInfo.module.css';
 
 let ProfileInfo = ({ saveAvatar, profile, isOwner, status, updateStatus, saveProfile }) => {
    let [editMode, setEditMode] = useState(false);
@@ -26,7 +27,14 @@ let ProfileInfo = ({ saveAvatar, profile, isOwner, status, updateStatus, savePro
    }
    return (
       <div>
-         <img src={profile.photos.large || userPhoto} alt="#" />
+
+         <div className={styles.item}>
+            <div className={styles.polaroid}>
+               <img src={profile.photos.large || userPhoto} alt="#" />
+               <div className={styles.caption}>My photo </div>
+            </div>
+         </div>
+
          {isOwner && <input type="file" onChange={onAvatarSelected} />}
          {editMode
             ? <ProfileInfoContentForm initialValues={profile} profile={profile} onSubmit={onFormSubmit} />
@@ -67,3 +75,5 @@ const ContactsInfo = ({ contactTitle, contactValue }) => {
    </div>
 }
 export default ProfileInfo;
+
+

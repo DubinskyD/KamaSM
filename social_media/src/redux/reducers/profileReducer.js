@@ -34,7 +34,6 @@ const profileReducer = (state = initialState, action) => {
             status: action.status
          };
       case SAVE_AVATAR_SUCCESS:
-         debugger;
          return {
             ...state,
             profile: { ...state.profile, photos: action.avatar }
